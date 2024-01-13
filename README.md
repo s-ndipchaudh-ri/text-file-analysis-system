@@ -21,8 +21,4 @@ API Endpoint: Fetch results using taskId.
 Result Details: Provides results of the specified analysis operation.
 
 Getting Started
-1. Intitalze node project: 
-    npm init -y
 
-2. Install required packages:
-    npm install body-parser cookie-parser cors express nodemon pg sequelize sequelize-cli

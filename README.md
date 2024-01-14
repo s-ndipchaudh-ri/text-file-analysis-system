@@ -23,7 +23,7 @@ Result Details: Provides results of the specified analysis operation.
 Getting Started
 
 Prerequisites:
-Before you begin, ensure you have Node.js installed on your machine. T
+Before you begin, ensure you have Node.js installed on your machine. 
 
 Installation:
 

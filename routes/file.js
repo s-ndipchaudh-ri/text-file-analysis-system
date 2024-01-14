@@ -1,13 +1,13 @@
 const router = require('express').Router();
 const controller = require('../controller');
 const sendResponse = require("../helpers/sendResponses");
-
+const { upload } = require('../middleware/upload');
 
 /*
 upload api
 */
-router.post("/upload", async function (req, res) {
-	controller.FileController.uploadFile(req.body).then((data) => {
+router.post("/upload", upload.single('file'), async function (req, res) {
+	controller.FileController.uploadFile(req).then((data) => {
 		sendResponse.sendSuccessMessage("success", data, res);
 	}).catch((err) => {
 		if (err.isJoi) {

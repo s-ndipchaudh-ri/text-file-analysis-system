@@ -34,7 +34,7 @@ var connectDB = async () => {
 		console.log("Connect to Database");
 		await sequelize.authenticate()
 			.then(() => {
-				//  sequelize.sync();
+				 sequelize.sync();
 				console.log("database connected !");
 			})
 			.catch(err => {

@@ -36,6 +36,22 @@ router.post("/analyz", async function (req, res) {
 	});
 })
 
+/*
+get analysis api
+*/
+router.get("/analyz", async function (req, res) {
+	controller.FileController.getAnalyzeFileData(req.query).then((data) => {
+		sendResponse.sendSuccessMessage("success", data, res);
+	}).catch((err) => {
+		if (err.isJoi) {
+			sendResponse.sendErorMessage(err.details[0].message, {}, res);
+		}
+		else {
+			sendResponse.sendErorMessage(err.message, {}, res);
+		}
+	});
+})
+
 
 
 module.exports = router;

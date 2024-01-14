@@ -7,23 +7,22 @@ const { findTopKWords } = require('../helpers/logics');
 module.exports = {
     uploadFile: async (payload) => {
         try {
-
-            let obj = await model.file.create(
-                {
-                    file_name: payload.file.filename
-                }
-            )
-            obj = obj.toJSON()
-            return {
-                ...obj
-            }
-
+            let obj = await model.file.create({
+                file_name: payload.file.filename
+            });
+    
+            // Convert the Sequelize object to a plain JSON object
+            // This conversion makes it easier to work with the data outside of Sequelize
+            obj = obj.toJSON();
+    
+            // Return the created file object
+            return { ...obj };
+    
         } catch (error) {
-            throw error
-
+            throw error;
         }
     },
-    // Async function to analyze a file based on the provided payload
+    
     analyzeFile: async (payload) => {
         try {
             // Destructure the required properties from the payload
@@ -92,5 +91,27 @@ module.exports = {
         }
     },
 
+    getAnalyzeFileData: async (payload) => {
+        try {
+            // Destructure taskId from the payload
+            const { taskId } = payload;
+    
+            // Fetch the task data from the database using the provided taskId
+            let data = await model.task.findOne({ where: { id: taskId } });
+    
+            // If no data is found
+           if (!data) { throw new Error('Task not found'); }
+    
+            // Convert the Sequelize object to a plain JSON object
+            data = data.toJSON();
+    
+            // Return the task data
+            return { ...data };
+    
+        } catch (error) {
+            // Throw any encountered errors to be handled by the caller
+            throw error;
+        }
+    },
 
 }

@@ -19,4 +19,23 @@ router.post("/upload", upload.single('file'), async function (req, res) {
 	});
 })
 
+
+/*
+post analysis api
+*/
+router.post("/analyz", async function (req, res) {
+	controller.FileController.analyzeFile(req.body).then((data) => {
+		sendResponse.sendSuccessMessage("success", data, res);
+	}).catch((err) => {
+		if (err.isJoi) {
+			sendResponse.sendErorMessage(err.details[0].message, {}, res);
+		}
+		else {
+			sendResponse.sendErorMessage(err.message, {}, res);
+		}
+	});
+})
+
+
+
 module.exports = router;

@@ -23,6 +23,9 @@ Result Details: Provides results of the specified analysis operation.
 Getting Started
 
 Prerequisites:
+
+Give configuration of your database in dbconfig file.
+
 Before you begin, ensure you have Node.js installed on your machine. 
 
 Installation:

@@ -23,17 +23,20 @@ Result Details: Provides results of the specified analysis operation.
 Getting Started
 
 Prerequisites:
-Before you begin, ensure you have Node.js installed on your machine. 
 
-Installation:
+Before you begin, ensure you have Node.js and Postgres installed on your machine. 
 
-1. Install Dependencies: Open your terminal and navigate to the root directory of the project. Run the following command to install all necessary dependencies:
-npm install
+A. Give configuration of your database in dbconfig file.
 
-2. Start the Application: Once the installation is complete, start the application by running:
-npm start
+B. Installation:
 
-This command will start the server on the designated port 8001, and you should see a message indicating that the server is running.
+    1. Install Dependencies: Open your terminal and navigate to the root directory of the project. Run the following command to install all necessary dependencies:
+    ----> npm install
+
+    2. Start the Application: Once the installation is complete, start the application by running:
+    ----> npm start
+
+    This command will start the server on the designated port 8001, and you should see a message indicating that the server is running.
 
 
 Testing the API

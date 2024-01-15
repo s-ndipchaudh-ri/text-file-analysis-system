@@ -1,0 +1,104 @@
+{
+	"info": {
+		"_postman_id": "875570cc-2257-43a8-9b63-3d83c7fc5904",
+		"name": "Text Analysis System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26870819"
+	},
+	"item": [
+		{
+			"name": "upload file",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": []
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8001/file/upload",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"file",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create task",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"fileId\":2,\n    \"wordCount\":true,\n    \"K\":3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8001/file/analyz",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"file",
+						"analyz"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "fetch task",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"fileId\":2,\n    \"wordCount\":true,\n    \"K\":3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8001/file/analyz?taskId=3",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"file",
+						"analyz"
+					],
+					"query": [
+						{
+							"key": "taskId",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
